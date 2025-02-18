@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex5</title>
+
+    <style>
+      .filme {
+        margin: 5px 0;
+      }
+      .azul {
+        color: blue;
+      }
+      .vermelho {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    Filmes favoritos: <input type="text" id="ipt_filme" />
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <div id="msg"></div>
+  </body>
+</html>
+
+<script>
+  var lista_filmes = [];
+
+  function cadastrar() {
+    var filme = ipt_filme.value;
+    lista_filmes.push(filme);
+    exibirFilmes();
+  }
+
+  function exibirFilmes() {
+    msg.innerHTML = "";
+
+    for (var i = 0; i < lista_filmes.length; i++) {
+      var cor = i % 2 == 0 ? "azul" : "vermelho";
+      msg.innerHTML += `<div class="filme ${cor}">${lista_filmes[i]}</div>`;
+    }
+  }
+</script>

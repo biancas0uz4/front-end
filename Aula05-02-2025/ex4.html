@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+<body>
+     Tabuada do 2 ao 9 : <input type="number" id="ipt_tabuada">
+
+     Até que numero a tabuada deve ir? : <input type="number" id="ipt_numero">
+
+     <button onclick="calcular()">Ver Tabuada</button>
+
+     <div id="msg"></div>
+
+</body>
+</html>
+
+<script>
+    function calcular(){
+        msg.innerHTML = '';
+
+        var tabuada = Number(ipt_tabuada.value);
+        var numero = Number(ipt_numero.value);
+
+        for(var i = 1; i <= numero; i++){
+            msg.innerHTML += `${tabuada} x ${i} = ${tabuada * i} <br>`
+        }
+    }
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex6</title>
+  </head>
+  <body>
+    Musicas favoritas: <input type="text" id="ipt_musica" />
+    <br />
+    De: <input type="text" id="ipt_de" /> 
+    <br>
+    Até: <input type="text" id="ipt_ate" />
+    <br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir</button>
+    <button onclick="filtrar()">Filtrar</button>
+
+    <div id="msg"></div>
+  </body>
+</html>
+
+<script>
+    var lista_musicas = [];
+
+    function cadastrar(){
+        var musica = ipt_musica.value;
+
+        lista_musicas.push(musica);
+    }
+
+    function exibir(){
+        msg.innerHTML = "";
+
+        for(var i = 0; i < lista_musicas.length; i++){
+            msg.innerHTML += `${lista_musicas[i]}<br>`;
+        }
+    }
+
+    function filtrar(){
+        var de = Number(ipt_de.value) - 1;
+        var ate = Number(ipt_ate.value);
+
+        msg.innerHTML = "";
+
+        for (var i = de; i < ate && i < lista_musicas.length; i++) {
+            msg.innerHTML += `${lista_musicas[i]}<br>`;
+        }
+    }
+</script>

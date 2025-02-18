@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <h1>Média</h1>
+
+    Nota 1: <input type="text" id="ipt_um">
+    <br>
+    Nota 2: <input type="text" id="ipt_dois">
+
+    <button onclick="verificar()">Verificar situação</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var notaUm = Number(ipt_um.value);
+        var notaDois = Number(ipt_dois.value);
+
+        var media = (notaUm + notaDois) / 2;
+
+        if(media >= 6){
+            div_msg.innerHTML = `Parabéns, aprovado!`
+        }else{
+            div_msg.innerHTML = `Tente outra vez..`
+
+        }
+
+    }
+</script>

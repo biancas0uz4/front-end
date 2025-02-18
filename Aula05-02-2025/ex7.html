@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex7</title>
+</head>
+<body>
+    <button onclick="gerar3e10()">Gerar uma nota de aluno entre 3 e 10</button>
+    <button onclick="gerar50e100()">Gerar uma frequência de aluno entre 50 e 100</button>
+    <button onclick="verAprovacao()">Ver Aprovação</button>
+
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    var nota, frequencia;
+
+    function gerar3e10(){
+        nota = (Math.random() * 7 + 3).toFixed(1);
+        msg.innerHTML = `Nota: ${nota}`;
+    }
+
+    function gerar50e100(){
+        frequencia = (Math.random() * 50 + 50).toFixed(1);
+        msg.innerHTML = `Frequência: ${frequencia}`;
+    }
+
+    function verAprovacao(){
+        if(nota >= 7 && frequencia >= 75){
+            msg.innerHTML = `Aprovado`;
+        } else {
+            msg.innerHTML = `Reprovado`;
+        }
+    }
+</script>

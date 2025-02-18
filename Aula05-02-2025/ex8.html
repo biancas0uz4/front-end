@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex8</title>
+  </head>
+  <body>
+    Número positivo: <input type="number" id="ipt_limite" min="1" />
+    <br />
+    Número para teste de divisibilidade:
+    <input type="number" id="ipt_divisor" min="1" /> <br /><br />
+    <button onclick="somar()">Somar Números</button>
+    <div id="msg"></div>
+  </body>
+</html>
+
+<script>
+  function somar() {
+    var limite = Number(ipt_limite.value);
+    var divisor = Number(ipt_divisor.value);
+
+    var soma = 0;
+    var multiplos = '';
+
+    if (divisor < 1 || divisor > limite) {
+      msg.innerHTML =
+        "O número para teste de divisibilidade deve estar entre 1 e o número limite.";
+    }
+
+    for (var i = 1; i <= limite; i++) {
+      if (i % divisor == 0) {
+        multiplos += i + " ";
+        soma += i;
+      }
+    }
+
+    msg.innerHTML = `Múltiplos de ${divisor} entre 1 e ${limite}: ${multiplos}<br> <br>Soma dos Múltiplos: ${soma}`;
+  }
+</script>

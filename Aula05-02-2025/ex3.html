@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex3</title>
+  </head>
+  <body>
+    Nota: <input type="text" id="ipt_nota" />
+
+    <button onclick="classificar()">Classificar aluno</button>
+
+    <div id="msg"></div>
+  </body>
+</html>
+
+<script>
+  function classificar() {
+    var nota = Number(ipt_nota.value);
+
+    if (nota < 5) {
+      msg.innerHTML = `Aluno precisa de muita ajuda`;
+    } else if (nota >= 5 && nota <= 7) {
+      msg.innerHTML = `Aluno na média`;
+    } else if (nota > 7 && nota <= 9.5) {
+      msg.innerHTML = `Aluno acima da média`;
+    } else {
+      msg.innerHTML = `Aluno fora da curva`;
+    }
+  }
+</script>

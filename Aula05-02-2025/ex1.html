@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+</head>
+<body>
+    <h1>Pizza</h1>
+
+    Sabor: <input type="text" id="ipt_sabor">
+    <br>
+    Preço: <input type="text" id="ipt_preco">
+    <br>
+    Quantidade de amigos: <input type="text" id="ipt_qtd">
+
+    <button onclick="ver()">Ver valor por amigo</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function ver(){
+        var sabor = ipt_sabor.value;
+        var preco = Number(ipt_preco.value);
+        var qtd = Number(ipt_qtd.value);
+
+        var caixinha = preco + (preco * 0.10);
+        var valor = caixinha / qtd;
+
+      div_msg.innerHTML = `Cada amigo vai colaborar com R$${valor} para a pizza de ${sabor}.`
+    }
+</script>
