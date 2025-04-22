@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+        <input type="text" name="nome" placeholder="Nome" id="input_nome">
+        <input type="text" name="email" placeholder="email" id="input_email">
+        <input type="text" name="senha" placeholder="senha" id="input_senha">
+        <button id="btn-submit" type="submit">Cadastrar</button>
+    </form>
+
+    <section>
+        <ul id="users_list"></ul>
+    </section>
+
+    <script>
+
+        //usar regex para validação de email para ser um javascript utils
+
+        const buttonSubmit = document.querySelector('#btn-submit')
+        const listaUser = document.querySelector('#users_list')
+        
+
+        buttonSubmit.addEventListener('click', (event) => {
+            event.preventDefault();
+            createUser();
+        });
+
+        const createUser = () => {
+            const nome = input_nome.value;
+            const email = input_email.value;
+            const senha = input_senha.value;
+
+            const newUser = {
+                nome,
+                email,
+                senha
+            }
+
+            const formatedUser = JSON.stringify(newUser);
+            fetch("http://localhost:3000/users",
+                {
+                    body: formatedUser,
+                    method: "POST"
+
+                }
+            )
+                .then((resp) => {
+                    console.log("res", resp);
+                    getUsers();
+
+                })
+                .catch((error) => {
+                    console.log("error", error);
+                })
+
+        }
+
+        const getUsers = () => {
+            fetch("http://localhost:3000/users",
+                {
+                    method: "GET",
+
+                }
+            )
+
+                .then((resp) => {
+                    return resp.json();
+                })
+
+                .then((data) => {
+
+                    listaUser.innerHTML = '';
+
+
+                    data.forEach((user) => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `Nome: ${user.nome} - Email: ${user.email}`;
+                        listaUser.appendChild(li);
+
+                    })
+                })
+                .catch((error) => {
+                    console.log("error", error);
+                })
+
+        }
+
+        window.addEventListener('load', () => {
+            getUsers();
+
+        })
+
+    </script>
+
+
+</body>
+
+</html>
